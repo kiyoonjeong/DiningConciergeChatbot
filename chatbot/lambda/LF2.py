@@ -42,7 +42,7 @@ def lambda_handler(event, context):
     phone = values['phone']['StringValue']
     
     esurl = 'https://search-yelpes-jhmbbuw2jtnxuqagundoslagmy.us-east-1.es.amazonaws.com/_search?q=' + cuisine
-    esres = requests.post(esurl, auth=HTTPBasicAuth('kiyoon2120', 'KIwi727272!'))
+    esres = requests.post(esurl, auth=HTTPBasicAuth('*', '*'))
     estext = esres.json()
     
     dynamodb = boto3.resource('dynamodb')
@@ -61,10 +61,9 @@ def lambda_handler(event, context):
         comments += ", Coordinates : " + item['Coordinates'] + ", Number of Reviews : " + item['NumberofReviews'] + ", Rating : " + item['Rating'] + ")\n"
         count += 1
 
-    client = boto3.client("sns",aws_access_key_id="ASIAVTRHLQ2N56HHBDIA",
-    aws_secret_access_key="mGmjjaQSTU0CZPyThE77ZnvlG6qLmtWigtD4MBz4",
-    aws_session_token = "FwoGZXIvYXdzEEUaDJ4lZpYpFjY7RNqchiK8AT4ZK68VAl9Qo+7yJ2vdjTVY2ZajpIUVfq98CF/9kPcQ9HLLqz0zR59zpOWw92EeAcEiXxOBzbd9fdcKSbBguvM/oivoAxyPEzssSp92L4lNhpf50EqGjxMpc/03QdJwIA6qV13tZd8kdED/RfcE8agNUMq5wiz7cjUDWBgroFrmiYvT5AIjch1zbz5F+zOq9zssmNA9HhWt6CYPaxDJxadCDfNgScYQ0bw8J6Umk6zhyi5pQztgHlxSvT8gKLOMwvwFMi0jtyfyXT4SnI25BbcAL2hP9vAlif/ZyztbDpHXxPoQvf82h9pYBi3GZtQH3Us=")
-
+    client = boto3.client("sns",aws_access_key_id="*",
+    aws_secret_access_key="*",
+    aws_session_token = "*",
     snstext = 'This is my recommendation list.\n' + comments
     response = client.publish(
         PhoneNumber = "+1"+ phone,
