@@ -9,7 +9,7 @@ import requests
 cuisinetype = 'french'
 
 
-API_KEY = 'PKzqesxHVm8yVBWXjlz2jS8FDi9n-knRtobJb7sqQYPOEqRElBQ5S6Z5vEC0Y3DKhHNdXdEtAtnvnTrGQx3JnUkuQGC-bRfND1nrW-Rbvu2n-BsiOZ3RknmBsiiNX3Yx'
+API_KEY = '*'
 ENDPOINT = 'https://api.yelp.com/v3/businesses/search'
 HEADERS = {'Authorization': 'bearer %s' % API_KEY}
 
